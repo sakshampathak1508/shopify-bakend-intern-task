@@ -1,0 +1,42 @@
+{%extends 'crud/basic.html' %}
+{%block title%}
+Add Products
+{%endblock%}
+{%block body%}
+<div class="container">
+    <br>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="prod_name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="prod_name" id="prod_name" aria-describedby="Name Of Product">
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Select image:</label>
+            <input type="file" id="img" name="img" accept="image/*" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" aria-describedby="Price Of Product">
+        </div>
+        <div class="mb-3">
+            <label for="brand" class="form-label">Brand</label>
+            <input type="text" class="form-control" id="brand" name="brand" aria-describedby="Name Of Product">
+        </div>
+        <div class="mb-3">
+            <label for="sc" class="form-label">Stock Count</label>
+            <input type="number" class="form-control" id="sc" name="sc"aria-describedby="Name Of Product">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" class="form-control" id="category" name="category"aria-describedby="Name Of Product">
+        </div>
+        <div class="mb-3">
+            <label for="about" class="form-label">About</label>
+            <input type="text" class="form-control" id="about" name="about" aria-describedby="Name Of Product">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+</div>
+{%endblock%}

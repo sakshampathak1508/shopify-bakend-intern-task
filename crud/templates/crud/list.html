@@ -1,0 +1,27 @@
+{%extends 'crud/basic.html' %}
+{%block title%}
+List Of All Products
+{%endblock%}
+{%block body%}
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-4">
+        {%for p in prod%}
+        <div class="col">
+            <div class="card h-100">
+                <img style="width:100%; height: 232px;" src="/media/{{p.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">{{p.name}}</h4>
+                    <h6 class="card-title">${{p.price}}</h6>
+                    <h6 class="card-title">Stock Count: {{p.stock_count}}</h6>
+                    <h6 class="card-title">{{p.stock_category}}</h6>
+                    <p class="card-text">{{p.about}}</p>
+                    <a href="/delete/{{p.id}}"><button type="button" class="btn btn-danger">Delete a Product</button></a>
+                    <a href="/edit/{{p.id}}"><button type="button" class="btn btn-warning">Edit a Product</button></a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+</div>
+{%endblock%}
